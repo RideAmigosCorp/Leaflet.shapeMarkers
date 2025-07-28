@@ -1,7 +1,6 @@
-import L from 'leaflet';
+import L from "leaflet";
 
 export var ShapeMarker = L.Path.extend({
-
   initialize: function (latlng, size, options) {
     L.setOptions(this, options);
     this._size = size;
@@ -11,8 +10,8 @@ export var ShapeMarker = L.Path.extend({
 
   toGeoJSON: function () {
     return L.GeoJSON.getFeature(this, {
-      type: 'Point',
-      coordinates: L.GeoJSON.latLngToCoords(this.getLatLng())
+      type: "Point",
+      coordinates: L.GeoJSON.latLngToCoords(this.getLatLng()),
     });
   },
 
@@ -37,7 +36,7 @@ export var ShapeMarker = L.Path.extend({
   setLatLng: function (latlng) {
     this._latlng = L.latLng(latlng);
     this.redraw();
-    return this.fire('move', {latlng: this._latlng});
+    return this.fire("move", { latlng: this._latlng });
   },
 
   getLatLng: function () {
@@ -51,5 +50,11 @@ export var ShapeMarker = L.Path.extend({
 
   getSize: function () {
     return this._size;
-  }
+  },
+
+  // ensures leaflets call to this._updateBounds() in L.Path do not crash
+  _updateBounds: function () {
+    // do nothing for now
+    // implement if necessary
+  },
 });
