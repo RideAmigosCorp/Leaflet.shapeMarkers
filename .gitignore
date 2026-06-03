@@ -17,8 +17,7 @@ npm-debug.log
 # Grunt
 .grunt/
 
-# compiled code
-dist/*
+# compiled code is committed so this package is installable from git without a build step
 
 # Debugging Files
 debug/*

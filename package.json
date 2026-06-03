@@ -45,13 +45,16 @@
   ],
   "license": "Apache-2.0",
   "main": "dist/leaflet-shape-markers.js",
+  "files": [
+    "dist",
+    "src"
+  ],
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
     "url": "git@github.com:Esri/Leaflet.shapeMarkers.git"
   },
   "scripts": {
-    "prepublish": "npm run build",
     "prebuild": "mkdirp dist",
     "build": "rollup -c scripts/debug.js && rollup -c scripts/production.js",
     "release": "./scripts/release.sh",
